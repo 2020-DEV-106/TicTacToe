@@ -37,20 +37,28 @@ public class Game {
         char winner = '\0';
 
         if (isAnyRowFilledByPlayer(PLAYER_X.value)
-                || isColumnFilledByPlayer(POSITION_ZERO, PLAYER_X.value)
-                || isColumnFilledByPlayer(POSITION_ONE, PLAYER_X.value)
-                || isColumnFilledByPlayer(POSITION_TWO, PLAYER_X.value)) {
+                || isAnyColumnFilledByPlayerX()) {
             winner = PLAYER_X.value;
         }
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
-                || isColumnFilledByPlayer(POSITION_ZERO, PLAYER_O.value)
-                || isColumnFilledByPlayer(POSITION_ONE, PLAYER_O.value)
-                || isColumnFilledByPlayer(POSITION_TWO, PLAYER_O.value)) {
+                || isAnyColumnFilledByPlayerO()) {
             winner = PLAYER_O.value;
         }
 
         return winner;
+    }
+
+    private boolean isAnyColumnFilledByPlayerO() {
+        return isColumnFilledByPlayer(POSITION_ZERO, PLAYER_O.value)
+                || isColumnFilledByPlayer(POSITION_ONE, PLAYER_O.value)
+                || isColumnFilledByPlayer(POSITION_TWO, PLAYER_O.value);
+    }
+
+    private boolean isAnyColumnFilledByPlayerX() {
+        return isColumnFilledByPlayer(POSITION_ZERO, PLAYER_X.value)
+                || isColumnFilledByPlayer(POSITION_ONE, PLAYER_X.value)
+                || isColumnFilledByPlayer(POSITION_TWO, PLAYER_X.value);
     }
 
     private boolean isColumnFilledByPlayer(int columnPosition, char player) {
