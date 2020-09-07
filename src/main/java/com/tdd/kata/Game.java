@@ -40,17 +40,17 @@ public class Game {
             winner = PLAYER_X.value;
         }
 
-        if (isGameWonByPlayerO()) {
+        if (isGameWonByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isGameWonByPlayerO() {
-        return isAnyRowFilledByPlayer(PLAYER_O.value)
-                || isAnyColumnFilledByPlayer(PLAYER_O.value)
-                || isAnyDiagonalFilledByPlayer(PLAYER_O.value);
+    private boolean isGameWonByPlayerO(char playerO) {
+        return isAnyRowFilledByPlayer(playerO)
+                || isAnyColumnFilledByPlayer(playerO)
+                || isAnyDiagonalFilledByPlayer(playerO);
     }
 
     private boolean isGameWonByPlayerX() {
