@@ -12,6 +12,7 @@ public class GameTest {
 
     private static final int POSITION_ZERO = 0;
     private static final int POSITION_ONE = 1;
+    private static final int POSITION_TWO = 2;
     private Game game;
 
     @Before
@@ -40,7 +41,7 @@ public class GameTest {
         game.playAt(POSITION_ONE, POSITION_ZERO);
         game.playAt(POSITION_ZERO, POSITION_ONE);
         game.playAt(POSITION_ONE, POSITION_ONE);
-        game.playAt(POSITION_ZERO, 2);
+        game.playAt(POSITION_ZERO, POSITION_TWO);
 
         assertThat(game.getWinner(), is(PLAYER_X.value));
     }
