@@ -5,6 +5,9 @@ import static com.tdd.kata.Player.PLAYER_O;
 
 public class Game {
 
+    private static final int POSITION_ZERO = 0;
+    private static final int POSITION_ONE = 1;
+    private static final int POSITION_TWO = 2;
     private char previousPlayer;
     private final Board board;
 
@@ -31,7 +34,7 @@ public class Game {
     }
 
     public char getWinner() {
-        if (getPlayerAt(0, 0) == PLAYER_X.value && getPlayerAt(0, 1) == PLAYER_X.value && getPlayerAt(0, 2) == PLAYER_X.value) {
+        if (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_X.value && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_X.value && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value) {
             return PLAYER_X.value;
         }
 
