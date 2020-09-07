@@ -38,19 +38,27 @@ public class Game {
 
         if (isAnyRowFilledByPlayer(PLAYER_X.value)
                 || isAnyColumnFilledByPlayer(PLAYER_X.value)
-                || isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_X.value)
-                || isTopRightToBottomLeftDiagonalFilledByPlayer(PLAYER_X.value)) {
+                || isAnyDiagonalFilledByPlayerX()) {
             winner = PLAYER_X.value;
         }
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
                 || isAnyColumnFilledByPlayer(PLAYER_O.value)
-                || isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_O.value)
-                || isTopRightToBottomLeftDiagonalFilledByPlayer(PLAYER_O.value)) {
+                || isAnyDiagonalFilledByPlayerO()) {
             winner = PLAYER_O.value;
         }
 
         return winner;
+    }
+
+    private boolean isAnyDiagonalFilledByPlayerO() {
+        return isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_O.value)
+                || isTopRightToBottomLeftDiagonalFilledByPlayer(PLAYER_O.value);
+    }
+
+    private boolean isAnyDiagonalFilledByPlayerX() {
+        return isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_X.value)
+                || isTopRightToBottomLeftDiagonalFilledByPlayer(PLAYER_X.value);
     }
 
     private boolean isTopRightToBottomLeftDiagonalFilledByPlayer(char player) {
