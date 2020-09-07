@@ -37,22 +37,22 @@ public class Game {
         char winner = '\0';
 
         if (isAnyRowFilledByPlayer(PLAYER_X.value)
-                || isFirstColumnFilledByPlayerO(PLAYER_X.value)) {
+                || isFirstColumnFilledByPlayer(PLAYER_X.value)) {
             winner = PLAYER_X.value;
         }
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
-                || isFirstColumnFilledByPlayerO(PLAYER_O.value)) {
+                || isFirstColumnFilledByPlayer(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isFirstColumnFilledByPlayerO(char playerO) {
-        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == playerO
-                && getPlayerAt(POSITION_ONE, POSITION_ZERO) == playerO
-                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == playerO;
+    private boolean isFirstColumnFilledByPlayer(char player) {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == player
+                && getPlayerAt(POSITION_ONE, POSITION_ZERO) == player
+                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == player;
     }
 
     private boolean isAnyRowFilledByPlayer(char player) {
