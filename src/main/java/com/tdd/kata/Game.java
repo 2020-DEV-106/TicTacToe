@@ -31,6 +31,10 @@ public class Game {
     }
 
     public char getWinner() {
-        return PLAYER_X.value;
+        if (getPlayerAt(0, 0) == PLAYER_X.value && getPlayerAt(0, 1) == PLAYER_X.value && getPlayerAt(0, 2) == PLAYER_X.value) {
+            return PLAYER_X.value;
+        }
+
+        return PLAYER_O.value;
     }
 }
