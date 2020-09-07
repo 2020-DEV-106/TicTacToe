@@ -1,5 +1,8 @@
 package com.tdd.kata;
 
+import static com.tdd.kata.Player.PLAYER_X;
+import static com.tdd.kata.Player.PLAYER_O;
+
 public class Game {
 
     private char previousPlayer;
@@ -20,7 +23,7 @@ public class Game {
     }
 
     private char getCurrentPlayer() {
-        return previousPlayer == Player.PLAYER_X.value ? Player.PLAYER_O.value : Player.PLAYER_X.value;
+        return previousPlayer == PLAYER_X.value ? PLAYER_O.value : PLAYER_X.value;
     }
 
     public char getPlayerAt(int row, int column) {

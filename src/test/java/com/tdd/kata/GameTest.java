@@ -3,6 +3,8 @@ package com.tdd.kata;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.tdd.kata.Player.PLAYER_X;
+import static com.tdd.kata.Player.PLAYER_O;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -21,7 +23,7 @@ public class GameTest {
     public void getPlayerAtShouldReturnXAfterFirstTurn() {
         game.playAt(POSITION_ZERO, POSITION_ZERO);
 
-        assertThat(game.getPlayerAt(POSITION_ZERO, POSITION_ZERO), is(Player.PLAYER_X.value));
+        assertThat(game.getPlayerAt(POSITION_ZERO, POSITION_ZERO), is(PLAYER_X.value));
     }
 
     @Test
@@ -29,6 +31,6 @@ public class GameTest {
         game.playAt(POSITION_ZERO, POSITION_ZERO);
         game.playAt(POSITION_ZERO, POSITION_ONE);
 
-        assertThat(game.getPlayerAt(POSITION_ZERO, POSITION_ONE), is(Player.PLAYER_O.value));
+        assertThat(game.getPlayerAt(POSITION_ZERO, POSITION_ONE), is(PLAYER_O.value));
     }
 }
