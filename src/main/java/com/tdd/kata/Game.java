@@ -36,16 +36,26 @@ public class Game {
     public char getWinner() {
         char winner = '\0';
 
-        if (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_X.value && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_X.value && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value) {
+        if (isFirstRowFilledByPlayerX()) {
             winner = PLAYER_X.value;
         }
 
-        if (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value) {
+        if (isFirstRowFilledByPlayerO()) {
             winner = PLAYER_O.value;
         }
 
         return winner;
+    }
+
+    private boolean isFirstRowFilledByPlayerO() {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
+                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
+                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value;
+    }
+
+    private boolean isFirstRowFilledByPlayerX() {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_X.value
+                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_X.value
+                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value;
     }
 }
