@@ -41,7 +41,10 @@ public class Game {
             winner = PLAYER_X.value;
         }
 
-        if (isAnyRowFilledByPlayer(PLAYER_O.value)) {
+        if (isAnyRowFilledByPlayer(PLAYER_O.value)
+                || (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
+                && getPlayerAt(POSITION_ONE, POSITION_ZERO) == PLAYER_O.value
+                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
