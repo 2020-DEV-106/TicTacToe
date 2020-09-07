@@ -42,17 +42,17 @@ public class Game {
         }
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
-                || isAnyColumnFilledByPlayerO()) {
+                || isAnyColumnFilledByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isAnyColumnFilledByPlayerO() {
-        return isColumnFilledByPlayer(POSITION_ZERO, PLAYER_O.value)
-                || isColumnFilledByPlayer(POSITION_ONE, PLAYER_O.value)
-                || isColumnFilledByPlayer(POSITION_TWO, PLAYER_O.value);
+    private boolean isAnyColumnFilledByPlayerO(char playerO) {
+        return isColumnFilledByPlayer(POSITION_ZERO, playerO)
+                || isColumnFilledByPlayer(POSITION_ONE, playerO)
+                || isColumnFilledByPlayer(POSITION_TWO, playerO);
     }
 
     private boolean isAnyColumnFilledByPlayerX() {
