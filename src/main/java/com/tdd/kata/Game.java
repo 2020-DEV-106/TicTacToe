@@ -46,17 +46,17 @@ public class Game {
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
                 || isAnyColumnFilledByPlayer(PLAYER_O.value)
                 || isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_O.value)
-                || isTopRightToBottomLeftDiagonalFilledByPlayerO()) {
+                || isTopRightToBottomLeftDiagonalFilledByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isTopRightToBottomLeftDiagonalFilledByPlayerO() {
-        return getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value
-                && getPlayerAt(POSITION_ONE, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == PLAYER_O.value;
+    private boolean isTopRightToBottomLeftDiagonalFilledByPlayerO(char playerO) {
+        return getPlayerAt(POSITION_ZERO, POSITION_TWO) == playerO
+                && getPlayerAt(POSITION_ONE, POSITION_ONE) == playerO
+                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == playerO;
     }
 
     private boolean isTopRightToBottomLeftDiagonalFilledByPlayerX() {
