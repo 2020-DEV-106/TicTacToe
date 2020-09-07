@@ -44,17 +44,17 @@ public class Game {
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
                 || isAnyColumnFilledByPlayer(PLAYER_O.value)
-                || isTopLeftToBottomRightDiagonalFilledByPlayerO()) {
+                || isTopLeftToBottomRightDiagonalFilledByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isTopLeftToBottomRightDiagonalFilledByPlayerO() {
-        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
-                && getPlayerAt(POSITION_ONE, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_TWO, POSITION_TWO) == PLAYER_O.value;
+    private boolean isTopLeftToBottomRightDiagonalFilledByPlayerO(char playerO) {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == playerO
+                && getPlayerAt(POSITION_ONE, POSITION_ONE) == playerO
+                && getPlayerAt(POSITION_TWO, POSITION_TWO) == playerO;
     }
 
     private boolean isTopLeftToBottomRightDiagonalFilledByPlayerX() {
