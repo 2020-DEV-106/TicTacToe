@@ -40,17 +40,17 @@ public class Game {
             winner = PLAYER_X.value;
         }
 
-        if (isFirstRowFilledByPlayerO()) {
+        if (isFirstRowFilledByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isFirstRowFilledByPlayerO() {
-        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_O.value;
+    private boolean isFirstRowFilledByPlayerO(char playerO) {
+        return getPlayerAt(POSITION_ZERO, POSITION_ZERO) == playerO
+                && getPlayerAt(POSITION_ZERO, POSITION_ONE) == playerO
+                && getPlayerAt(POSITION_ZERO, POSITION_TWO) == playerO;
     }
 
     private boolean isFirstRowFilledByPlayerX() {
