@@ -38,7 +38,10 @@ public class Game {
 
         if (isAnyRowFilledByPlayer(PLAYER_X.value)
                 || isAnyColumnFilledByPlayer(PLAYER_X.value)
-                || isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_X.value)) {
+                || isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_X.value)
+                || (getPlayerAt(POSITION_ZERO, POSITION_TWO) == PLAYER_X.value
+                && getPlayerAt(POSITION_ONE, POSITION_ONE) == PLAYER_X.value
+                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == PLAYER_X.value)) {
             winner = PLAYER_X.value;
         }
 
