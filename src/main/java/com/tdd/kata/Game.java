@@ -36,7 +36,10 @@ public class Game {
     public char getWinner() {
         char winner = '\0';
 
-        if (isAnyRowFilledByPlayer(PLAYER_X.value)) {
+        if (isAnyRowFilledByPlayer(PLAYER_X.value)
+                || (getPlayerAt(POSITION_ZERO, POSITION_ZERO) == PLAYER_X.value
+                && getPlayerAt(POSITION_ONE, POSITION_ZERO) == PLAYER_X.value
+                && getPlayerAt(POSITION_TWO, POSITION_ZERO) == PLAYER_X.value)) {
             winner = PLAYER_X.value;
         }
 
