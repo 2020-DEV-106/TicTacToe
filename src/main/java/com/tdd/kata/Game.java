@@ -43,7 +43,10 @@ public class Game {
         }
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
-                || isFirstColumnFilledByPlayer(PLAYER_O.value)) {
+                || isFirstColumnFilledByPlayer(PLAYER_O.value)
+                || (getPlayerAt(POSITION_ZERO, POSITION_ONE) == PLAYER_O.value
+                && getPlayerAt(POSITION_ONE, POSITION_ONE) == PLAYER_O.value
+                && getPlayerAt(POSITION_TWO, POSITION_ONE) == PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
