@@ -44,16 +44,16 @@ public class Game {
 
         if (isAnyRowFilledByPlayer(PLAYER_O.value)
                 || isAnyColumnFilledByPlayer(PLAYER_O.value)
-                || isAnyDiagonalFilledByPlayerO()) {
+                || isAnyDiagonalFilledByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isAnyDiagonalFilledByPlayerO() {
-        return isTopLeftToBottomRightDiagonalFilledByPlayer(PLAYER_O.value)
-                || isTopRightToBottomLeftDiagonalFilledByPlayer(PLAYER_O.value);
+    private boolean isAnyDiagonalFilledByPlayerO(char playerO) {
+        return isTopLeftToBottomRightDiagonalFilledByPlayer(playerO)
+                || isTopRightToBottomLeftDiagonalFilledByPlayer(playerO);
     }
 
     private boolean isAnyDiagonalFilledByPlayerX() {
