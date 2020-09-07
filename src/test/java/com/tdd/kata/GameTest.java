@@ -33,4 +33,15 @@ public class GameTest {
 
         assertThat(game.getPlayerAt(POSITION_ZERO, POSITION_ONE), is(PLAYER_O.value));
     }
+
+    @Test
+    public void getWinnerShouldReturnXIfXFillsFirstRow() {
+        game.playAt(POSITION_ZERO, POSITION_ZERO);
+        game.playAt(POSITION_ONE, POSITION_ZERO);
+        game.playAt(POSITION_ZERO, POSITION_ONE);
+        game.playAt(POSITION_ONE, POSITION_ONE);
+        game.playAt(POSITION_ZERO, 2);
+
+        assertThat(game.getWinner(), is(PLAYER_X.value));
+    }
 }

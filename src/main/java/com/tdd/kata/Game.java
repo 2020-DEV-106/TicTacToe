@@ -29,4 +29,8 @@ public class Game {
     public char getPlayerAt(int row, int column) {
         return board.getPlayerAt(row, column);
     }
+
+    public char getWinner() {
+        return PLAYER_X.value;
+    }
 }
