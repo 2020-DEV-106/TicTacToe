@@ -44,17 +44,17 @@ public class Game {
 
         if (isFirstRowFilledByPlayer(PLAYER_O.value)
                 || isSecondRowFilledByPlayer(PLAYER_O.value)
-                || isThirdRowFilledByPlayerO()) {
+                || isThirdRowFilledByPlayerO(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
         return winner;
     }
 
-    private boolean isThirdRowFilledByPlayerO() {
-        return getPlayerAt(POSITION_TWO, POSITION_ZERO) == PLAYER_O.value
-                && getPlayerAt(POSITION_TWO, POSITION_ONE) == PLAYER_O.value
-                && getPlayerAt(POSITION_TWO, POSITION_TWO) == PLAYER_O.value;
+    private boolean isThirdRowFilledByPlayerO(char playerO) {
+        return getPlayerAt(POSITION_TWO, POSITION_ZERO) == playerO
+                && getPlayerAt(POSITION_TWO, POSITION_ONE) == playerO
+                && getPlayerAt(POSITION_TWO, POSITION_TWO) == playerO;
     }
 
     private boolean isThirdRowFilledByPlayerX() {
