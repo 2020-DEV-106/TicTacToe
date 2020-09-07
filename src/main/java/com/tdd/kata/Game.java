@@ -36,19 +36,27 @@ public class Game {
     public char getWinner() {
         char winner = '\0';
 
-        if (isAnyRowFilledByPlayer(PLAYER_X.value)
-                || isAnyColumnFilledByPlayer(PLAYER_X.value)
-                || isAnyDiagonalFilledByPlayer(PLAYER_X.value)) {
+        if (isGameWonByPlayerX()) {
             winner = PLAYER_X.value;
         }
 
-        if (isAnyRowFilledByPlayer(PLAYER_O.value)
-                || isAnyColumnFilledByPlayer(PLAYER_O.value)
-                || isAnyDiagonalFilledByPlayer(PLAYER_O.value)) {
+        if (isGameWonByPlayerO()) {
             winner = PLAYER_O.value;
         }
 
         return winner;
+    }
+
+    private boolean isGameWonByPlayerO() {
+        return isAnyRowFilledByPlayer(PLAYER_O.value)
+                || isAnyColumnFilledByPlayer(PLAYER_O.value)
+                || isAnyDiagonalFilledByPlayer(PLAYER_O.value);
+    }
+
+    private boolean isGameWonByPlayerX() {
+        return isAnyRowFilledByPlayer(PLAYER_X.value)
+                || isAnyColumnFilledByPlayer(PLAYER_X.value)
+                || isAnyDiagonalFilledByPlayer(PLAYER_X.value);
     }
 
     private boolean isAnyDiagonalFilledByPlayer(char player) {
