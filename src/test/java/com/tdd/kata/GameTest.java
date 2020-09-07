@@ -17,4 +17,14 @@ public class GameTest {
 
         Assert.assertThat(game.getPlayerAt(POSITION_ZERO, POSITION_ZERO), Is.is(PLAYER_X));
     }
+
+    @Test
+    public void getPlayerAtShouldReturnOAfterSecondTurn() {
+        Game game = new Game();
+
+        game.playAt(POSITION_ZERO, POSITION_ZERO);
+        game.playAt(POSITION_ZERO, 1);
+
+        Assert.assertThat(game.getPlayerAt(POSITION_ZERO, 1), Is.is('O'));
+    }
 }
