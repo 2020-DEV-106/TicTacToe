@@ -4,12 +4,13 @@ import com.tdd.kata.io.InputScanner;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert;
 
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
@@ -50,8 +51,8 @@ public class GameRunnerTest {
         testableGameRunner.startGame();
         String message = testableGameRunner.getMessage();
 
-        Assert.assertNotNull(message);
-        Assert.assertTrue(message.contains(instruction));
+        assertNotNull(message);
+        assertTrue(message.contains(instruction));
     }
 
     @Test
@@ -87,8 +88,8 @@ public class GameRunnerTest {
         testableGameRunner.startGame();
 
         String message = testableGameRunner.getMessage();
-        Assert.assertNotNull(message);
-        Assert.assertTrue(message.contains("Game is draw!!"));
+        assertNotNull(message);
+        assertTrue(message.contains("Game is draw!!"));
     }
 
     private class TestableGameRunner extends GameRunner {
