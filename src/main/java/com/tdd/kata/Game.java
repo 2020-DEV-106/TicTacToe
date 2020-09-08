@@ -102,4 +102,8 @@ public class Game {
     public boolean isDraw() {
         return board.isBoardFull() && getWinner() == CHARACTER_NULL;
     }
+
+    public boolean isOver() {
+        return getWinner() == 'X';
+    }
 }

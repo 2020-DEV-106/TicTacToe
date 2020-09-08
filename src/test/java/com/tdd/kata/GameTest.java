@@ -250,4 +250,15 @@ public class GameTest {
 
         Assert.assertTrue(game.isDraw());
     }
+
+    @Test
+    public void isOverShouldReturnTrueIfPlayerXWon() {
+        game.playAt(POSITION_ZERO, POSITION_ZERO);
+        game.playAt(POSITION_ONE, POSITION_ZERO);
+        game.playAt(POSITION_ZERO, POSITION_ONE);
+        game.playAt(POSITION_ONE, POSITION_ONE);
+        game.playAt(POSITION_ZERO, POSITION_TWO);
+
+        Assert.assertTrue(game.isOver());
+    }
 }
