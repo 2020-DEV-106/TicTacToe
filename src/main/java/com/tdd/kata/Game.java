@@ -94,4 +94,7 @@ public class Game {
                 && getPlayerAt(rowPosition, POSITION_TWO) == player;
     }
 
+    public boolean isNotOver() {
+        return false;
+    }
 }
