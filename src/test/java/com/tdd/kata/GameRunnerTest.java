@@ -2,17 +2,37 @@ package com.tdd.kata;
 
 import com.tdd.kata.io.InputScanner;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
-import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 public class GameRunnerTest {
+
+    @Mock
+    private InputScanner scanner;
+
+    @Mock
+    private Game game;
+
+    @InjectMocks
+    private GameRunner gameRunner;
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+    }
+
     @Test
     public void instructionsShouldBePrintedOnGameStart() {
-        InputScanner scanner = Mockito.mock(InputScanner.class);
-        Game game = Mockito.mock(Game.class);
-        Mockito.when(scanner.nextLine()).thenReturn("2 0");
+        when(scanner.nextLine()).thenReturn("2 0");
         String instruction = new StringBuilder("Welcome to TicTacToe game!!\n")
                 .append("This is a game on a board of size 3x3\n")
                 .append("Position of each box is represented by a combination of two numbers as below\n")
@@ -34,25 +54,20 @@ public class GameRunnerTest {
 
     @Test
     public void positionInputShouldBeCollectedAfterPrintingInstructions() {
-        InputScanner scanner = Mockito.mock(InputScanner.class);
-        Game game = Mockito.mock(Game.class);
-        Mockito.when(scanner.nextLine()).thenReturn("2 0");
+        when(scanner.nextLine()).thenReturn("2 0");
 
-        new GameRunner(scanner, game).startGame();
+        gameRunner.startGame();
 
-        Mockito.verify(scanner, Mockito.times(1)).nextLine();
+        verify(scanner, times(1)).nextLine();
     }
 
     @Test
     public void collectedPositionInputShouldBePassedToGame() {
-        InputScanner scanner = Mockito.mock(InputScanner.class);
-        Game game = Mockito.mock(Game.class);
+        when(scanner.nextLine()).thenReturn("2 0");
 
-        Mockito.when(scanner.nextLine()).thenReturn("2 0");
+        gameRunner.startGame();
 
-        new GameRunner(scanner, game).startGame();
-
-        Mockito.verify(game, Mockito.times(1)).playAt(2, 0);
+        verify(game, times(1)).playAt(2, 0);
     }
 
     private class TestableGameRunner extends GameRunner {
