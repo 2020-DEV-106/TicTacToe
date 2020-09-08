@@ -97,4 +97,8 @@ public class Game {
     public boolean isNotOver() {
         return false;
     }
+
+    public boolean isDraw() {
+        return false;
+    }
 }

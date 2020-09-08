@@ -79,6 +79,18 @@ public class GameRunnerTest {
         verify(game, times(3)).playAt(anyInt(), anyInt());
     }
 
+    @Test
+    public void gameResultShouldBePrintedAsDrawWhenGameIsDraw() {
+        when(game.isDraw()).thenReturn(true);
+        TestableGameRunner testableGameRunner = new TestableGameRunner(scanner, game);
+
+        testableGameRunner.startGame();
+
+        String message = testableGameRunner.getMessage();
+        Assert.assertNotNull(message);
+        Assert.assertTrue(message.contains("Game is draw!!"));
+    }
+
     private class TestableGameRunner extends GameRunner {
 
         public TestableGameRunner(InputScanner scanner, Game game) {
