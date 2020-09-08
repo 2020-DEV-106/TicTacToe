@@ -10,6 +10,9 @@ import org.mockito.Mockito;
 public class GameRunnerTest {
     @Test
     public void instructionsShouldBePrintedOnGameStart() {
+        InputScanner scanner = Mockito.mock(InputScanner.class);
+        Game game = Mockito.mock(Game.class);
+        Mockito.when(scanner.nextLine()).thenReturn("2 0");
         String instruction = new StringBuilder("Welcome to TicTacToe game!!\n")
                 .append("This is a game on a board of size 3x3\n")
                 .append("Position of each box is represented by a combination of two numbers as below\n")
@@ -20,7 +23,7 @@ public class GameRunnerTest {
                 .append("Game always starts with player 'X'\n")
                 .append("Players cannot play on a position which is already played\n")
                 .append("Mark your position:\n").toString();
-        TestableGameRunner testableGameRunner = new TestableGameRunner();
+        TestableGameRunner testableGameRunner = new TestableGameRunner(scanner, game);
 
         testableGameRunner.startGame();
         String message = testableGameRunner.getMessage();
@@ -32,13 +35,31 @@ public class GameRunnerTest {
     @Test
     public void positionInputShouldBeCollectedAfterPrintingInstructions() {
         InputScanner scanner = Mockito.mock(InputScanner.class);
+        Game game = Mockito.mock(Game.class);
+        Mockito.when(scanner.nextLine()).thenReturn("2 0");
 
-        new GameRunner(scanner).startGame();
+        new GameRunner(scanner, game).startGame();
 
         Mockito.verify(scanner, Mockito.times(1)).nextLine();
     }
 
+    @Test
+    public void collectedPositionInputShouldBePassedToGame() {
+        InputScanner scanner = Mockito.mock(InputScanner.class);
+        Game game = Mockito.mock(Game.class);
+
+        Mockito.when(scanner.nextLine()).thenReturn("2 0");
+
+        new GameRunner(scanner, game).startGame();
+
+        Mockito.verify(game, Mockito.times(1)).playAt(2, 0);
+    }
+
     private class TestableGameRunner extends GameRunner {
+
+        public TestableGameRunner(InputScanner scanner, Game game) {
+            super(scanner, game);
+        }
 
         private StringBuilder message = new StringBuilder();
 
