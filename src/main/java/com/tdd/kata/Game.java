@@ -104,6 +104,6 @@ public class Game {
     }
 
     public boolean isOver() {
-        return getWinner() == 'X';
+        return getWinner() == 'X' || getWinner() == 'O';
     }
 }
