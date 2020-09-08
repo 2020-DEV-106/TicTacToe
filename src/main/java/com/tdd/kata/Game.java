@@ -99,6 +99,6 @@ public class Game {
     }
 
     public boolean isDraw() {
-        return false;
+        return board.isBoardFull() && getWinner() == '\0';
     }
 }
