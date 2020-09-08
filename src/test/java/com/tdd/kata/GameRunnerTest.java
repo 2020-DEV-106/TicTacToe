@@ -92,6 +92,21 @@ public class GameRunnerTest {
         assertTrue(message.contains("Game is draw!!"));
     }
 
+    @Test
+    public void gameResultShouldBePrintedWithWinnerNameWhenGameResultIsNotADraw() {
+        char winner = 'X';
+        String winnerMessage = "Player " + winner + " won!!";
+        when(game.isDraw()).thenReturn(false);
+        when(game.getWinner()).thenReturn(winner);
+        TestableGameRunner testableGameRunner = new TestableGameRunner(scanner, game);
+
+        testableGameRunner.startGame();
+
+        String message = testableGameRunner.getMessage();
+        assertNotNull(message);
+        assertTrue(message.contains(winnerMessage));
+    }
+
     private class TestableGameRunner extends GameRunner {
 
         public TestableGameRunner(InputScanner scanner, Game game) {
