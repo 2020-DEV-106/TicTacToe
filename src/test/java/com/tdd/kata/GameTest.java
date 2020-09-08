@@ -1,6 +1,5 @@
 package com.tdd.kata;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,6 +7,7 @@ import static com.tdd.kata.Player.PLAYER_X;
 import static com.tdd.kata.Player.PLAYER_O;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class GameTest {
 
@@ -248,7 +248,7 @@ public class GameTest {
         game.playAt(POSITION_TWO, POSITION_TWO);
         game.playAt(POSITION_ZERO, POSITION_TWO);
 
-        Assert.assertTrue(game.isDraw());
+        assertTrue(game.isDraw());
     }
 
     @Test
@@ -259,6 +259,6 @@ public class GameTest {
         game.playAt(POSITION_ONE, POSITION_ONE);
         game.playAt(POSITION_ZERO, POSITION_TWO);
 
-        Assert.assertTrue(game.isOver());
+        assertTrue(game.isOver());
     }
 }
