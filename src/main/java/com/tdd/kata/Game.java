@@ -8,6 +8,7 @@ public class Game {
     private static final int POSITION_ZERO = 0;
     private static final int POSITION_ONE = 1;
     private static final int POSITION_TWO = 2;
+    private static final char CHARACTER_NULL = '\0';
     private char previousPlayer;
     private final Board board;
 
@@ -34,7 +35,7 @@ public class Game {
     }
 
     public char getWinner() {
-        char winner = '\0';
+        char winner = CHARACTER_NULL;
 
         if (isGameWonByPlayer(PLAYER_X.value)) {
             winner = PLAYER_X.value;
@@ -99,6 +100,6 @@ public class Game {
     }
 
     public boolean isDraw() {
-        return board.isBoardFull() && getWinner() == '\0';
+        return board.isBoardFull() && getWinner() == CHARACTER_NULL;
     }
 }
