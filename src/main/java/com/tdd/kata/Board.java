@@ -25,4 +25,8 @@ public class Board {
     public boolean isBoardFull() {
         return numberOfCellsFilled == TOTAL_NUMBER_CELLS_IN_BOARD;
     }
+
+    public boolean isPositionOccupied(int row, int column) {
+        return gameBoard[row][column] != '\0';
+    }
 }

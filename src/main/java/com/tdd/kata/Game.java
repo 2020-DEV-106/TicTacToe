@@ -111,6 +111,6 @@ public class Game {
     }
 
     public boolean isPositionOccupied(int row, int column) {
-        return false;
+        return board.isPositionOccupied(row, column);
     }
 }

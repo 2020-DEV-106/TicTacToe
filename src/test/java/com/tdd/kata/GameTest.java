@@ -288,4 +288,11 @@ public class GameTest {
 
         assertTrue(game.isOver());
     }
+
+    @Test
+    public void isPositionOccupiedShouldReturnTrueIfThePositionIsAlreadyPlayed() {
+        game.playAt(POSITION_ZERO, POSITION_ZERO);
+
+        assertTrue(game.isPositionOccupied(POSITION_ZERO, POSITION_ZERO));
+    }
 }
