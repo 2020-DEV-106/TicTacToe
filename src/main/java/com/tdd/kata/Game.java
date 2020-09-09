@@ -37,10 +37,8 @@ public class Game {
     public char getWinner() {
         char winner = CHARACTER_NULL;
 
-        if (isGameWonByPlayer(PLAYER_X.value)) {
-            winner = PLAYER_X.value;
-        } else if (isGameWonByPlayer(PLAYER_O.value)) {
-            winner = PLAYER_O.value;
+        if (isGameWonByPlayer(previousPlayer)) {
+            winner = previousPlayer;
         }
 
         return winner;
