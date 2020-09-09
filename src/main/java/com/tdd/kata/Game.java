@@ -39,9 +39,7 @@ public class Game {
 
         if (isGameWonByPlayer(PLAYER_X.value)) {
             winner = PLAYER_X.value;
-        }
-
-        if (isGameWonByPlayer(PLAYER_O.value)) {
+        } else if (isGameWonByPlayer(PLAYER_O.value)) {
             winner = PLAYER_O.value;
         }
 
