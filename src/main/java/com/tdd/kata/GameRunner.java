@@ -22,6 +22,10 @@ public class GameRunner {
         this.game = game;
     }
 
+    public static void main(String[] args) {
+        new GameRunner().startGame();
+    }
+
     public void startGame() {
         printInitialInstructions();
 
