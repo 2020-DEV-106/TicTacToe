@@ -109,4 +109,8 @@ public class Game {
                 || winner == PLAYER_O.value
                 || isDraw();
     }
+
+    public boolean isPositionOccupied(int row, int column) {
+        return false;
+    }
 }

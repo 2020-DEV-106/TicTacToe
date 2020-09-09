@@ -25,4 +25,5 @@
 2) The inputs should be in the format of <row number> followed by a <space> followed by <column number>.
 3) The row number and column number are in the range 0 to 2.
 4) Some Invalid inputs examples for your reference (-1 2), (4 0), ( 1), (12).
+5) Please do not enter already played position again.
 ~~~

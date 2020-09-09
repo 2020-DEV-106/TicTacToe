@@ -122,6 +122,21 @@ public class GameRunnerTest {
         assertTrue(errorMessage.contains(message));
     }
 
+    @Test
+    public void playGameShouldPrintErrorIfSelectedPositionIsAlreadyPlayed() {
+        String message = "Please choose a position which is unoccupied in the board";
+        when(scanner.nextLine()).thenReturn("2 0", "2 0");
+        when(game.isPositionOccupied(2, 0)).thenReturn(false, true);
+        when(game.isNotOver()).thenReturn(true, true, false);
+        TestableGameRunner testableGameRunner = new TestableGameRunner(scanner, game);
+
+        testableGameRunner.startGame();
+
+        String errorMessage = testableGameRunner.getMessage();
+        assertNotNull(errorMessage);
+        assertTrue(errorMessage.contains(message));
+    }
+
     private class TestableGameRunner extends GameRunner {
 
         public TestableGameRunner(InputScanner scanner, Game game) {
