@@ -27,3 +27,33 @@
 4) Some Invalid inputs examples for your reference (-1 2), (4 0), ( 1), (12).
 5) Please do not enter already played position again.
 ~~~
+# Set up application
+## IDE
+~~~
+1) Clone the repository https://github.com/2020-DEV-106/TicTacToe.git
+2) Add as Maven project
+3) Select Project SDK as JDK 1.8
+~~~
+## Command prompt
+~~~
+1) Clone repository from GIT 'https://github.com/2020-DEV-106/TicTacToe.git'
+2) Run `mvn clean install`
+~~~
+# Steps to run the test cases in eclipse IDE
+~~~
+1) Download project as zip file and unzip it to a folder. 
+2) In eclipse IDE, go to File menu -> Import -> Existing Maven Project -> Next -> 
+   Browse to the folder in above step and import
+3) Then, Right click project in Project Explorer window and 
+   select Run As -> Maven install
+4) Once above steps done open <b>GameTestSuite</b> class and right click  
+   file and choose Run As -> JUnit Test
+~~~
+# Steps to run the application in command prompt
+~~~
+After successful maven build
+Goto <ProjectDirectory>\target\classes and execute below command
+
+java -classpath .\ com.tdd.kata.GameRunner 
+Press Enter
+Follow the instructions printed and provide the row and column values until the game ends!!
