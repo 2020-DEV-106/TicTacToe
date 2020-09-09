@@ -9,6 +9,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
+import java.util.logging.Level;
+
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.Matchers.anyInt;
@@ -131,7 +133,7 @@ public class GameRunnerTest {
         private StringBuilder errorMessages = new StringBuilder();
 
         @Override
-        protected void print(String message) {
+        protected void print(Level level, String message) {
             this.message.append(message);
         }
 

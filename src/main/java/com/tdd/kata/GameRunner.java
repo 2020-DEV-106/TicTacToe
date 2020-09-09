@@ -9,6 +9,7 @@ import java.util.regex.Pattern;
 
 public class GameRunner {
     private static final Logger logger = Logger.getLogger(GameRunner.class.getName());
+    private static final String INPUT_PATTERN_REGEX = "^[0-2]{1}\\s{1}[0-2]{1}$";
     private final InputScanner scanner;
     private final Game game;
 
@@ -31,9 +32,9 @@ public class GameRunner {
 
     private void printGameResult() {
         if (game.isDraw()) {
-            print("Game is draw!!");
+            print(Level.INFO, "Game is draw!!");
         } else {
-            print("Player " + game.getWinner() + " won!!");
+            print(Level.INFO, "Player " + game.getWinner() + " won!!");
         }
     }
 
@@ -54,7 +55,7 @@ public class GameRunner {
     }
 
     private boolean isInvalidPosition(String position) {
-        Pattern pattern = Pattern.compile("^[0-2]{1}\\s{1}[0-2]{1}$");
+        Pattern pattern = Pattern.compile(INPUT_PATTERN_REGEX);
         Matcher matcher = pattern.matcher(position);
 
         return !matcher.find();
@@ -71,11 +72,11 @@ public class GameRunner {
                 .append("Game always starts with player 'X'\n")
                 .append("Players cannot play on a position which is already played\n")
                 .append("Mark your position:\n");
-        print(instruction.toString());
+        print(Level.INFO, instruction.toString());
     }
 
-    protected void print(String message) {
-        logger.log(Level.INFO, message);
+    protected void print(Level level, String message) {
+        logger.log(level, message);
     }
 
     protected void printError(String errorMessage) {
