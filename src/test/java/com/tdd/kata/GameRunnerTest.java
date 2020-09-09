@@ -117,7 +117,7 @@ public class GameRunnerTest {
 
         testableGameRunner.startGame();
 
-        String errorMessage = testableGameRunner.getErrorMessages();
+        String errorMessage = testableGameRunner.getMessage();
         assertNotNull(errorMessage);
         assertTrue(errorMessage.contains(message));
     }
@@ -130,24 +130,14 @@ public class GameRunnerTest {
 
         private StringBuilder message = new StringBuilder();
 
-        private StringBuilder errorMessages = new StringBuilder();
-
         @Override
         protected void print(Level level, String message) {
             this.message.append(message);
-        }
-
-        @Override
-        protected void printError(String errorMessage) {
-            errorMessages.append(errorMessage);
         }
 
         public String getMessage() {
             return message.toString();
         }
 
-        public String getErrorMessages() {
-            return errorMessages.toString();
-        }
     }
 }

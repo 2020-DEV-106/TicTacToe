@@ -43,7 +43,7 @@ public class GameRunner {
             String position = scanner.nextLine();
 
             if (isInvalidPosition(position)) {
-                printError("Please give a valid input for position");
+                print(Level.SEVERE, "Please give a valid input for position");
                 continue;
             }
 
@@ -79,7 +79,4 @@ public class GameRunner {
         logger.log(level, message);
     }
 
-    protected void printError(String errorMessage) {
-        logger.severe(errorMessage);
-    }
 }
