@@ -4,6 +4,8 @@ import com.tdd.kata.io.InputScanner;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GameRunner {
     private static final Logger logger = Logger.getLogger(GameRunner.class.getName());
@@ -38,11 +40,24 @@ public class GameRunner {
     private void playGame() {
         while (game.isNotOver()) {
             String position = scanner.nextLine();
+
+            if (isInvalidPosition(position)) {
+                printError("Please give a valid input for position");
+                continue;
+            }
+
             int row = Integer.parseInt(position.substring(0, 1));
             int column = Integer.parseInt(position.substring(2));
 
             game.playAt(row, column);
         }
+    }
+
+    private boolean isInvalidPosition(String position) {
+        Pattern pattern = Pattern.compile("^[0-2]{1}\\s{1}[0-2]{1}$");
+        Matcher matcher = pattern.matcher(position);
+
+        return !matcher.find();
     }
 
     private void printInitialInstructions() {
@@ -61,5 +76,9 @@ public class GameRunner {
 
     protected void print(String message) {
         logger.log(Level.INFO, message);
+    }
+
+    protected void printError(String errorMessage) {
+        logger.severe(errorMessage);
     }
 }

@@ -19,3 +19,10 @@
  JUnit 4.11+
  Mockito 1.10.19+
  ~~~
+# Guidelines to pass input values when playing the game
+~~~
+1) The inputs should contain only whole numbers and a space.
+2) The inputs should be in the format of <row number> followed by a <space> followed by <column number>.
+3) The row number and column number are in the range 0 to 2.
+4) Some Invalid inputs examples for your reference (-1 2), (4 0), ( 1), (12).
+~~~
